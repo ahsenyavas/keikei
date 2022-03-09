@@ -1,7 +1,7 @@
-import React from 'react'
+import Styles from "./index.module.scss";
 
 export default function Footer() {
   return (
-    <div>Footer</div>
+    <div className={Styles.footer}>Footer</div>
   )
 }

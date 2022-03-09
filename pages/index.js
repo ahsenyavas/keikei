@@ -15,7 +15,7 @@ export default function Home() {
       <h1>Populer Titles</h1>
       <div className={styles.cards}>
         <div className={styles.card}>
-          <Card sx={{ minWidth: 345 }}>
+          <Card >
             <CardMedia
               component="img"
               height="300"
@@ -30,7 +30,7 @@ export default function Home() {
           </Card>
         </div>
         <div className={styles.card}>
-          <Card sx={{ minWidth: 345 }}>
+          <Card >
             <CardMedia
               component="img"
               height="300"
@@ -48,3 +48,8 @@ export default function Home() {
     </div>
   );
 }
+
+
+/*
+sx={{ minWidth: 345 }}
+*/
