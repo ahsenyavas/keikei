@@ -5,6 +5,10 @@
   padding: 1rem;
 }
 
+.title{
+  margin-left: 2rem;
+}
+
 .cards{
   display: flex;
   flex-wrap: wrap;

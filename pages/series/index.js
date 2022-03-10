@@ -86,7 +86,7 @@ export default function Series() {
             <form onSubmit={handleOnSubmit}>
               <input
                 type="text"
-                placeholder="Search for a series"
+                placeholder="Search for a serie"
                 className={Styles.search}
                 value={searchTerm}
                 onChange={handleOnChange}

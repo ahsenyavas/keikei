@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <h1>Populer Titles</h1>
+      <h1 className={styles.title}>Populer Titles</h1>
       <div className={styles.cards}>
         <div className={styles.card}>
           <Card >
