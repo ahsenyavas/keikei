@@ -10,8 +10,14 @@ import Select from "@mui/material/Select";
 
 const key = "acc13e4b9d230b1c97ff5fdb44fb6b82";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=`;
+
+const YEAR_DESC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
+const YEAR_ASC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=release_date.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate` 
+const TITLE_ASC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
+const TITLE_DESC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
+
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
@@ -22,9 +28,25 @@ export default function Movies() {
     getMovies(FEATURED_API);
   }, []);
 
+  useEffect(() => {
+    if (value === 0) {
+      getMovies(YEAR_DESC);
+    }
+    else if(value === 1) {
+      getMovies(YEAR_ASC);
+    }
+    else if(value === 2) {
+      getMovies(TITLE_DESC);
+    }
+    else if(value === 3) {
+    getMovies(TITLE_ASC);
+    }
+  }, [value]);
+
   const getMovies = async (API) => {
     const response = await fetch(API);
     const data = await response.json();
+
     console.log(data.results);
     setMovies(data.results);
   };
@@ -44,39 +66,44 @@ export default function Movies() {
   };
 
   const menuList = [
-    "Sort by year in descending order",
-    "Sort by year in ascending order",
-    "Sort by title in descending order",
-    "Sort by title in ascending order",
+    {value: 0, text: "Sort by year in descending order"},
+    {value: 1, text: "Sort by year in ascending order"},
+    {value: 2, text: "Sort by title in descending order"},
+    {value: 3, text: "Sort by title in ascending order"},
   ];
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    console.log(value);
   };
+
+  
 
   return (
     <>
-    <div className={Styles.head}>
-      <form onSubmit={handleOnSubmit}>
-        <input
-          type="text"
-          placeholder="Search for a movie"
-          className={Styles.search}
-          value={searchTerm}
-          onChange={handleOnChange}
-        />
-      </form>
+      <h1>Populer Movies</h1>
+      <div className={Styles.head}>
+        <form onSubmit={handleOnSubmit}>
+          <input
+            type="text"
+            placeholder="Search for a movie"
+            className={Styles.search}
+            value={searchTerm}
+            onChange={handleOnChange}
+          />
+        </form>
 
-      <div>
-        <FormControl sx={{ m: 1, width: 300 }}>
-          <InputLabel id="demo-multiple-name-label">Sort</InputLabel>
-          <Select value={value} onChange={handleChange}>
-            {menuList.map((item) => (
-              <MenuItem value={item}>{item}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
+        <div>
+          <FormControl sx={{ m: 1, width: 300 }}>
+            <InputLabel id="demo-multiple-name-label">Sort</InputLabel>
+            <Select value={value} onChange={handleChange}>
+              {menuList.map((item) => (
+                <MenuItem value={item.value}>{item.text}</MenuItem>
+              ))}
+          
+            </Select>
+          </FormControl>
+        </div>
       </div>
       <div className={Styles.movieContainer}>
         {movies.map((movie) => (
@@ -86,3 +113,8 @@ export default function Movies() {
     </>
   );
 }
+
+
+/*
+
+*/

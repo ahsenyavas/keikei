@@ -1,6 +1,8 @@
 .head {
   display: flex;
   justify-content: space-between;
+
+  
   .search {
     background-color: transparent;
     border: 2px solid grey;
@@ -14,7 +16,6 @@
 
     .search:focus {
       outline: none;
-      background-color: var(--purple);
     }
   }
 }
