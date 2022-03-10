@@ -104,9 +104,11 @@ export default function Movies() {
             <div>
               <FormControl sx={{ m: 1, width: 300 }}>
                 <InputLabel id="demo-multiple-name-label">Sort</InputLabel>
-                <Select value={value} onChange={handleChange}>
-                  {menuList.map((item) => (
-                    <MenuItem value={item.value}>{item.text}</MenuItem>
+                <Select value={value} onChange={handleChange} label="Sort">
+                  {menuList.map((item, index) => (
+                    <MenuItem key={index} value={item.value}>
+                      {item.text}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormControl>

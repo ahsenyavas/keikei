@@ -4,7 +4,7 @@
   
   .head {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     .search {
       background-color: transparent;
@@ -26,8 +26,6 @@
 
 .movieContainer {
   display: flex;
-
-  //height: calc(100vh - 100px);
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 10px;

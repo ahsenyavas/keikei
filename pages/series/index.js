@@ -2,7 +2,6 @@ import Styles from "./index.module.scss";
 import Movie from "../../src/components/movie";
 import { useEffect, useState } from "react";
 
-import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -97,9 +96,9 @@ export default function Series() {
             <div>
               <FormControl sx={{ m: 1, width: 300 }}>
                 <InputLabel id="demo-multiple-name-label">Sort</InputLabel>
-                <Select value={value} onChange={handleChange}>
-                  {menuList.map((item) => (
-                    <MenuItem value={item.value}>{item.text}</MenuItem>
+                <Select value={value} onChange={handleChange} label="Sort">
+                  {menuList.map((item,index) => (
+                    <MenuItem key={index} value={item.value}>{item.text}</MenuItem>
                   ))}
                 </Select>
               </FormControl>

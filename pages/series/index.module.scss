@@ -1,19 +1,22 @@
-.head {
-  display: flex;
-  justify-content: space-between;
-  .search {
-    background-color: transparent;
-    border: 2px solid grey;
-    color: black;
-    border-radius: 50px;
-    font-family: inherit;
-    font-size: 1.2rem;
-    padding: 0.5rem 1.5rem;
-    width: 25rem;
-    margin: 1rem;
+.container {
+  padding: 1rem;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    .search {
+      background-color: transparent;
+      border: 2px solid grey;
+      color: black;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 1.2rem;
+      padding: 0.5rem 1.5rem;
+      width: 25rem;
+      margin: 1rem;
 
-    .search:focus {
-      outline: none;
+      .search:focus {
+        outline: none;
+      }
     }
   }
 }
