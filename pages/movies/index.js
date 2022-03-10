@@ -10,13 +10,13 @@ import Select from "@mui/material/Select";
 
 const key = "acc13e4b9d230b1c97ff5fdb44fb6b82";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&year=2010&with_watch_monetization_types=flatrate`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=`;
 
 const YEAR_DESC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
-const YEAR_ASC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=release_date.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate` 
-const TITLE_ASC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
-const TITLE_DESC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
+const YEAR_ASC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=release_date.asc&include_adult=false&include_video=false&page=1&year=2010&with_watch_monetization_types=flatrate` 
+const TITLE_ASC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&year=2010&with_watch_monetization_types=flatrate`
+const TITLE_DESC = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=original_title.desc&include_adult=false&include_video=false&page=1&year=2010&with_watch_monetization_types=flatrate`
 
 
 export default function Movies() {
@@ -80,7 +80,7 @@ export default function Movies() {
   
 
   return (
-    <>
+    <div className={Styles.container}>
       <h1>Populer Movies</h1>
       <div className={Styles.head}>
         <form onSubmit={handleOnSubmit}>
@@ -110,7 +110,7 @@ export default function Movies() {
           <Movie key={movie.id} {...movie} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

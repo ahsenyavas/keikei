@@ -56,7 +56,7 @@ export default function Series() {
   };
 
   return (
-    <>
+    <div className={Styles.container}>
       <h1>Populer Series</h1>
       <div className={Styles.head}>
         <form onSubmit={handleOnSubmit}>
@@ -85,6 +85,6 @@ export default function Series() {
           <Movie key={serie.id} title={serie.name} poster_path={serie.poster_path} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
